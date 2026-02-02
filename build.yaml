@@ -22,7 +22,6 @@ include:
   # Dongle (central)
   - board: seeeduino_xiao_ble
     shield: sofle_dongle prospector_adapter
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: seeeduino_xiao_ble
     shield: settings_reset
   # Settings reset for all devices
