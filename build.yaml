@@ -20,9 +20,9 @@
 ---
 include:
   # Dongle (central)
-  - board: seeed_xiao_ble
+  - board: seeeduino_xiao_ble
     shield: sofle_dongle prospector_adapter
-  - board: seeed_xiao_ble
+  - board: seeeduino_xiao_ble
     shield: settings_reset
   # Settings reset for all devices
   - board: nice_nano_v2
