@@ -1,21 +1,21 @@
 manifest:
   defaults:
-    revision: v0.3
+    revision: main  # Changed from v0.3
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: carrefinho                            # <--- add this
+    - name: carrefinho
       url-base: https://github.com/carrefinho 
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3
+      revision: main  # Changed from v0.3
       import: app/west.yml
     - name: nv-gem
       url: https://github.com/MechboardsLTD/zmk-module
       revision: nv_gem
-    - name: prospector-zmk-module                 # <--- and these
-      remote: carrefinho                          # <---
+    - name: prospector-zmk-module
+      remote: carrefinho
       revision: main   
   self:
     path: config
