@@ -20,15 +20,17 @@
 ---
 include:
   # Dongle (central)
-  - board: nice_nano_v2
-    shield: sofle_dongle
+  - board: seeed_xiao_nrf52840
+    shield: sofle_dongle prospector_adapter
+  - board: seeed_xiao_nrf52840
+    shield: settings_reset
   # Settings reset for all devices
   - board: nice_nano_v2
     shield: settings_reset
   # Left and right peripherals
   - board: nice_nano_v2
-    shield: sofle_left
+    shield: sofle_left nice_view_adapter nice_view_gem
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano_v2
-    shield: sofle_right
+    shield: sofle_right nice_view_adapter nice_view_gem
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
