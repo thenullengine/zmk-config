@@ -19,7 +19,16 @@
 #
 ---
 include:
+  # Dongle (central)
+  - board: nice_nano_v2
+    shield: sofle_dongle
+  # Settings reset for all devices
+  - board: nice_nano_v2
+    shield: settings_reset
+  # Left and right peripherals
   - board: nice_nano_v2
     shield: sofle_left
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano_v2
     shield: sofle_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
