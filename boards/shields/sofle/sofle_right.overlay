@@ -6,14 +6,6 @@
 
 #include "sofle.dtsi"
 
-&nice_view_spi {
-    cs-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
-};
-
-&led_strip {
-    chain-length = <36>;
-};
-
 &default_transform {
     col-offset = <6>;
 };
