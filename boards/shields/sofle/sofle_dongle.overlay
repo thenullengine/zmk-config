@@ -30,5 +30,21 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
                 RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,7) RC(4,8) RC(4,9) RC(4,10) RC(4,11)
         >;
     };
+    
+    left_encoder: left_encoder {
+        compatible = "alps,ec11";
+        a-gpios = <&pro_micro 0 GPIO_PULL_UP>;
+        b-gpios = <&pro_micro 0 GPIO_PULL_UP>;
+        steps = <80>;
+        status = "disabled";
+    };
+
+    right_encoder: right_encoder {
+        compatible = "alps,ec11";
+        a-gpios = <&pro_micro 0 GPIO_PULL_UP>;
+        b-gpios = <&pro_micro 0 GPIO_PULL_UP>;
+        steps = <80>;
+        status = "disabled";
+    };
 };
 
