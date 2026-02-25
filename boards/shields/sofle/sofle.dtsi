@@ -66,39 +66,31 @@ RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(4,5) RC(4,6) RC(3,6) RC(3,7) 
         status = "disabled";
     };
 
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <20>;
-    };
+    // Sensors node removed from here - will be defined per-board
+    // in the individual overlay files to avoid referencing
+    // encoders that don't exist on each build
 };
 
-&led_strip {
-    chain-length = <36>;
-};
-
-&nice_view_spi {
-    cs-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
-};
-
-&pro_micro_i2c {
-    status = "okay";
-
-    oled: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
-        width = <128>;
-        height = <32>;
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <31>;
-        segment-remap;
-        com-invdir;
-        com-sequential;
-        inversion-on;
-        prechargep = <0x22>;
-    };
-};
+// OLED I2C configuration disabled - using Nice!View (SPI) instead
+// The nice_view_adapter shield handles the display configuration
+// &pro_micro_i2c {
+//     status = "okay";
+//
+//     oled: ssd1306@3c {
+//         compatible = "solomon,ssd1306fb";
+//         reg = <0x3c>;
+//         width = <128>;
+//         height = <32>;
+//         segment-offset = <0>;
+//         page-offset = <0>;
+//         display-offset = <0>;
+//         multiplex-ratio = <31>;
+//         segment-remap;
+//         com-invdir;
+//         com-sequential;
+//         inversion-on;
+//         prechargep = <0x22>;
+//     };
+// };
 
 

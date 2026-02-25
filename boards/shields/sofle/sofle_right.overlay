@@ -33,3 +33,11 @@
 &right_encoder {
     status = "okay";
 };
+
+/ {
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&right_encoder>;
+        triggers-per-rotation = <20>;
+    };
+};
