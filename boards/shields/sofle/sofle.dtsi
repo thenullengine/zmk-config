@@ -13,7 +13,8 @@
 
 / {
     chosen {
-        zephyr,display = &oled;
+        // Display is handled by nice_view_adapter shield
+        // zephyr,display = &oled;
         zmk,kscan = &kscan0;
     };
 

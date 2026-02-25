@@ -16,31 +16,13 @@
 #define ADJUST 3
 
 / {
-    /* DUMMY NODES: This tells the dongle build that these labels exist */
-    /* They are 'disabled' here so they don't interfere with the dongle pins */
-    left_encoder: encoder_left {
-        compatible = "alps,ec11";
-        #sensor-cells = <0>;
-        status = "disabled";
-    };
-
-    right_encoder: encoder_right {
-        compatible = "alps,ec11";
-        #sensor-cells = <0>;
-        status = "disabled";
-    };
-
     behaviors {
         soft_off_hold: soft_off_hold {
             compatible = "zmk,behavior-soft-off";
             #binding-cells = <0>;
-            hold-time-ms = <3000>; 
+            hold-time-ms = <3000>;
         };
     };
-
-};
-
-/ {
 
    // Activate ADJUST layer by pressing raise and lower
     conditional_layers {
@@ -49,12 +31,6 @@
             if-layers = <LOWER RAISE>;
             then-layer = <ADJUST>;
         };
-    };
-
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <20>;
     };
 
     keymap {
@@ -133,6 +109,8 @@
 &none             &none           &none           &none           &none           &none            &rgb_ug RGB_TOG &none  &none &none &none &none &none &none
                                   &none           &none           &none           &none            &none           &none  &none &none &none &none
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
     };
