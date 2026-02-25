@@ -19,18 +19,33 @@
 #
 ---
 include:
-  # Dongle (central)
+  # ---------------------------------------------------------
+  # Dongle (Central)
+  # ---------------------------------------------------------
   - board: seeeduino_xiao_ble
+    # Make sure the 'sofle_dongle' folder exists in your shields directory!
     shield: sofle_dongle prospector_adapter
-  - board: seeeduino_xiao_ble
-    shield: settings_reset
-  # Settings reset for all devices
-  - board: nice_nano_v2
-    shield: settings_reset
-  # Left and right peripherals
+
+  # ---------------------------------------------------------
+  # Left Peripheral
+  # ---------------------------------------------------------
   - board: nice_nano_v2
     shield: sofle_left nice_view_adapter nice_view_gem
+    # This forces the left half (normally central) to be a peripheral
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  # ---------------------------------------------------------
+  # Right Peripheral
+  # ---------------------------------------------------------
   - board: nice_nano_v2
     shield: sofle_right nice_view_adapter nice_view_gem
+    # This ensures the right half stays a peripheral
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    
+  # ---------------------------------------------------------
+  # Settings Reset (Optional but recommended to keep handy)
+  # ---------------------------------------------------------
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+  - board: nice_nano_v2
+    shield: settings_reset

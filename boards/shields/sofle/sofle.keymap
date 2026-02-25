@@ -16,6 +16,21 @@
 #define ADJUST 3
 
 / {
+    behaviors {
+        soft_off_hold: soft_off_hold {
+            compatible = "zmk,behavior-soft-off";
+            #binding-cells = <0>;
+            hold-time-ms = <3000>; 
+        };
+    };
+
+    /* This block tells the keyboard to wake up when ANY key is pressed */
+    &kscan0 {
+        wakeup-source;
+    };
+};
+
+/ {
 
    // Activate ADJUST layer by pressing raise and lower
     conditional_layers {
@@ -58,11 +73,11 @@
 // |       |     |     |      |      |      |        |  |       |      |       |       |      |       |       |
 //               |     |      |      |      |        |  |       |      |       |       |      |
             bindings = <
-&kp F7    &kp F8    &kp F9    &kp F10     &kp F11   &kp F12                   &trans    &trans   &trans    &trans    &trans    &trans
-&kp F1    &kp F2    &kp F3    &kp F4      &kp F5    &kp F6                    &trans    &trans   &trans    &trans    &trans    &trans
-&trans    &trans    &trans    &trans      &trans    &trans                    &trans    &trans   &trans    &trans    &trans    &trans
-&trans    &trans    &trans    &trans      &trans    &trans     &trans &trans  &trans    &trans   &trans    &trans    &trans    &trans
-                    &trans    &trans      &trans    &trans     &trans &trans  &trans    &trans   &trans    &trans
+&kp F7    &kp F8    &kp F9    &kp F10     &kp F11   &kp F12                           &trans    &trans   &trans    &trans    &trans    &trans
+&kp F1    &kp F2    &kp F3    &kp F4      &kp F5    &kp F6                            &trans    &trans   &trans    &trans    &trans    &trans
+&trans    &trans    &trans    &trans      &trans    &trans                            &trans    &trans   &trans    &trans    &trans    &trans
+&trans    &trans    &trans    &trans      &trans    &trans     &trans         &trans  &trans    &trans   &trans    &trans    &trans    &trans
+                    &trans    &trans      &trans    &trans     &soft_off_hold &trans  &trans    &trans   &trans    &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
@@ -77,11 +92,11 @@
 // |       |      |      |       |       |      |      |  |      |      |      |       |      |       |       |
 //                |      |       |       |      |      |  |      |      |      |       |      |
             bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                  &trans    &trans    &trans   &trans    &trans  &kp DEL
-&trans     &trans       &trans       &trans       &trans       &trans                        &kp PG_UP &trans    &kp UP   &trans    &trans  &trans
-&kp CLCK   &trans       &trans       &trans       &trans       &trans                        &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &trans  &trans
-&trans     &trans       &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans    &trans   &trans    &trans  &trans
-                        &trans       &trans       &trans       &trans        &trans  &trans  &trans    &trans    &trans   &trans
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                          &trans    &trans    &trans   &trans    &trans  &kp DEL
+&trans     &trans       &trans       &trans       &trans       &trans                                &kp PG_UP &trans    &kp UP   &trans    &trans  &trans
+&kp CLCK   &trans       &trans       &trans       &trans       &trans                                &kp PG_DN &kp LEFT  &kp DOWN &kp RIGHT &trans  &trans
+&trans     &trans       &trans       &trans       &trans       &trans        &trans  &trans          &trans    &trans    &trans   &trans    &trans  &trans
+                        &trans       &trans       &trans       &trans        &trans  &soft_off_hold  &trans    &trans    &trans   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
