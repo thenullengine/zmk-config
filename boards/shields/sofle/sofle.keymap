@@ -26,10 +26,8 @@
 
 };
 
-/* This block tells the keyboard to wake up when ANY key is pressed */
-&kscan0 {
-    wakeup-source;
-};
+&left_encoder { status = "okay"; };
+&right_encoder { status = "okay"; };
 
 / {
 
