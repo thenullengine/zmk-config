@@ -26,9 +26,6 @@
 
 };
 
-&left_encoder { status = "okay"; };
-&right_encoder { status = "okay"; };
-
 / {
 
    // Activate ADJUST layer by pressing raise and lower
@@ -38,6 +35,12 @@
             if-layers = <LOWER RAISE>;
             then-layer = <ADJUST>;
         };
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&left_encoder &right_encoder>;
+        triggers-per-rotation = <20>;
     };
 
     keymap {
