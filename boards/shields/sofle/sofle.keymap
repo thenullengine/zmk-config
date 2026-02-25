@@ -24,10 +24,11 @@
         };
     };
 
-    /* This block tells the keyboard to wake up when ANY key is pressed */
-    &kscan0 {
-        wakeup-source;
-    };
+};
+
+/* This block tells the keyboard to wake up when ANY key is pressed */
+&kscan0 {
+    wakeup-source;
 };
 
 / {
