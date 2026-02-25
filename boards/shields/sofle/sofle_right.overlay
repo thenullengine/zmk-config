@@ -10,6 +10,14 @@
     col-offset = <6>;
 };
 
+&led_strip {
+    chain-length = <36>;
+};
+
+&nice_view_spi {
+    cs-gpios = <&pro_micro 4 GPIO_ACTIVE_HIGH>;
+};
+
 &kscan0 {
     wakeup-source;
     col-gpios
